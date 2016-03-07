@@ -1,0 +1,9 @@
+.idea
+.DS_Store
+*.iml
+vendor/*
+composer.lock
+error.log
+index.php
+bootstrap.php
+template.php

@@ -1,0 +1,36 @@
+{
+    "name": "hindy/form",
+    "homepage": "https://github.com/hashstudio/Mindy_Form",
+    "version": "0.1.5.2",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mindy\\Form\\": "src/Mindy/Form"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "hindy/exception": "0.*",
+        "hindy/locale": "0.*",
+        "hindy/validation": "0.*",
+        "hindy/helper": "0.*",
+        "hindy/utils": "0.*",
+        "hindy/event": "0.*"
+    },
+    "require-dev": {
+        "hindy/cache": "dev-master",
+        "hindy/query": "dev-master",
+        "hindy/logger": "dev-master",
+        "hindy/orm": "dev-master",
+        "satooshi/php-coveralls": "dev-master"
+    },
+    "authors": [{
+        "name": "Maxim Falaleev",
+        "email": "max@studio107.ru",
+        "homepage": "http://studio107.ru",
+        "role": "Developer"
+    }],
+    "support": {
+        "issues": "https://github.com/hashstudio/Mindy_Form/issues?state=open"
+    }
+}
