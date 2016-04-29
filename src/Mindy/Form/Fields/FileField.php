@@ -59,19 +59,19 @@ class FileField extends Field
         }
 
         if ($hasFileValidator === false) {
+            $fileValidator = new FileValidator($this->required, $this->types, $this->maxSize);
+            $fileValidator->setName($this->name);
             $this->validators = array_merge([
-                new FileValidator($this->required, $this->types, $this->maxSize)
+                $fileValidator
             ], $this->validators);
         }
 
         $this->html['accept'] = implode('|', $this->types);
     }
 
-    public function render()
+    public function renderInput()
     {
         $t = Translate::getInstance();
-        $label = $this->renderLabel();
-
         $input = strtr($this->template, [
             '{type}' => $this->type,
             '{id}' => $this->getHtmlId(),
@@ -101,10 +101,7 @@ class FileField extends Field
             }
             $input = $currentLink . $clean . $input;
         }
-
-        $hint = $this->hint ? $this->renderHint() : '';
-        $errors = $this->renderErrors();
-        return implode("\n", [$label, $input, $hint, $errors]);
+        return $input;
     }
 
     public function setValue($value)
