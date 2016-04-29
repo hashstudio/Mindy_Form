@@ -80,7 +80,7 @@ class FileField extends Field
         ]);
 
         $value = $this->getValue();
-        if (is_array($value)) {
+        if (is_array($value) || $value == '') {
             $value = $this->getOldValue();
         }
 
