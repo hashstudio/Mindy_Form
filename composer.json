@@ -1,7 +1,7 @@
 {
     "name": "hindy/form",
     "homepage": "https://github.com/hashstudio/Mindy_Form",
-    "version": "0.1.5.5",
+    "version": "0.1.5.6",
     "license": "MIT",
     "autoload": {
         "psr-4": {
