@@ -208,9 +208,9 @@ abstract class Field implements IValidateField
         if (is_array($this->html)) {
             if ($hasErrors) {
                 if (!isset($this->html['class'])) {
-                    $this->html['class'] = 'has-errors';
+                    $this->html['class'] = 'invalid';
                 } else {
-                    $this->html['class'] .= ' has-errors';
+                    $this->html['class'] .= ' invalid';
                 }
             }
             $html = '';
@@ -221,7 +221,7 @@ abstract class Field implements IValidateField
         } else {
             $html = (string) $this->html;
             if (mb_strpos($html, 'class') === false && $hasErrors) {
-                $html .= " class='has-errors'";
+                $html .= " class='invalid'";
             }
             return $html;
         }
