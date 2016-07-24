@@ -203,14 +203,27 @@ abstract class Field implements IValidateField
 
     public function getHtmlAttributes()
     {
+        $hasErrors = $this->hasErrors();
+
         if (is_array($this->html)) {
+            if ($hasErrors) {
+                if (!isset($this->html['class'])) {
+                    $this->html['class'] = 'has-errors';
+                } else {
+                    $this->html['class'] .= ' has-errors';
+                }
+            }
             $html = '';
             foreach ($this->html as $name => $value) {
                 $html .= is_numeric($name) ? " $value" : " $name='$value'";
             }
             return $html;
         } else {
-            return $this->html;
+            $html = (string) $this->html;
+            if (mb_strpos($html, 'class') === false && $hasErrors) {
+                $html .= " class='has-errors'";
+            }
+            return $html;
         }
     }
 
